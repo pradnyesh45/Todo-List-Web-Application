@@ -13,7 +13,12 @@
   "author": "Pradnyesh Aglawe",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.2",
     "express": "^4.17.1",
+    "less-middleware": "^3.1.0",
+    "mongoose": "^5.9.10",
+    "mongoskin": "^2.1.0",
     "nodemon": "^2.0.3"
   }
 }
