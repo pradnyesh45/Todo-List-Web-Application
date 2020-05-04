@@ -3,25 +3,97 @@
         <title>
             <%= title %>
         </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <style type="text/css">
+            body{
+                /* background-color: blueviolet; */
+                background-image: url(https://images.unsplash.com/photo-1586202690180-1967f682ef1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=683&q=80);
+                min-height: 100vh;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                color: white;
+                font-size: 1.5rem;
+            }
+            .hero{
+                background-color: rgb(3, 3, 3, 0.5);
+                min-height: 100vh;
+                min-width: 100vw;
+                top: 0;
+                bottom: 0;
+                position: absolute;
+            }
+            h1{
+                margin-top: 13rem;
+                margin-bottom: 0px;
+            }
+            .lead{
+                font-size: 2rem;
+            }
+            ul{
+                list-style: none;
+                margin-top: 2rem;
+                border-top: 2px solid white;
+                /* display: none; */
+            }
+            li{
+                border-bottom: 1px solid white;
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+            }
+            input[type=checkbox]{
+                float: right;
+                height: 20px;
+                width: 20px;
+                border: 1px solid white;
+            }
+        </style>
     </head>
 
     <body>
-        <h1>This is the home page for TodoList Web App!</h1>
-
-        <div>
-            <ul>
-                <% for (let i of task_list){ %>
-                    <li>
-                        <p> <%= i.task %> </p>
-                    </li>
-                <% } %>
-            </ul>
-            
+        <div class="hero">
+            <div class="container">
+                <h1 class="text-center display-2">TodoList</h1>
+                <p class="lead text-center">Pradnyesh Aglawe welcomes you to his TodoList Application!</p>
+                <div class="row">
+                    <form id="form" action="/create-task" method="POST" class="col-8 mx-auto">
+                        <div class="input-group">
+                          <input id="input" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the Task Here...">
+                          <span>
+                            <button id="btn" type="submit" class="btn btn-primary">Create Task</button>
+                          </span>
+                        </div>
+                    </form>
+                </div>
+                <div class="row">
+                    <ul id="list" class="col-8 mx-auto">
+                        <% for (let i of task_list){ %>
+                            <li>
+                                <span> <%= i.task %> </span>
+                                <input type="checkbox" aria-label="Checkbox for following text input">
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
         </div>
+        
 
-        <form action="/create-task" method="POST">
-            <input type="text" name="task" placeholder="Enter the task here!">
-            <button type="submit">Create Task</button>
-        </form>
+        
+
+        <script type="text/javascript">
+            window.onload = function(){
+                var form = document.getElementById('form');
+                var input = document.getElementById('input');
+                var btn = document.getElementById('btn');
+                var list = document.getElementById('list');
+                var id = 1;
+
+                // Button Event Listener
+                btn.addEventListener('click', AddTodoItem){
+
+                }
+            }
+        </script>
     </body>
 </html>
