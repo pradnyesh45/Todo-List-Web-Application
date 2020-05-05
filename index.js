@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const db = require('./config/mongoose');
 const Task = require('./models/task');
 
@@ -14,6 +15,8 @@ app.set('views', './views');
 app.use(express.urlencoded());
 app.use(express.static('./assets'));
 
+
+
 // creating a Task
 app.post('/create-task', function(req, res){
     Task.create({
@@ -28,6 +31,14 @@ app.post('/create-task', function(req, res){
         return res.redirect('back');
     });
 });
+
+// Deleting a task
+// app.get('/delete-task/:task', function(req, res){
+//     console.log(req.query);
+//     let task = req.query.task;
+
+//     let taskIndex = tasklist;
+// });
 
 // listening to the port 
 app.listen(port, function(err){

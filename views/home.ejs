@@ -3,6 +3,7 @@
         <title>
             <%= title %>
         </title>
+        <script src="https://kit.fontawesome.com/3e0475d61b.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="/css/home.css">
         
@@ -11,28 +12,42 @@
     <body>
         <div class="hero">
             <div class="container">
-                <h1 class="text-center display-2">TodoList</h1>
+                <h1 class="text-center display-2">
+                    <i class="fas fa-list-alt"></i>
+                    TodoList
+                </h1>
                 <p class="lead text-center">Pradnyesh Aglawe welcomes you to his TodoList Application!</p>
                 <div class="row">
                     <form id="form" action="/create-task" method="POST" class="col-8 mx-auto">
                         <div class="input-group">
-                          <input id="input" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the Task Here...">
+                          <input id="input" type="text" name="task" class="form-control" placeholder="Enter the Task Here..." required>
                           <span>
                             <button id="btn" type="submit" class="btn btn-primary">Create Task</button>
                           </span>
                         </div>
                     </form>
                 </div>
+                    
                 <div class="row">
                     <ul id="list" class="col-8 mx-auto">
                         <% for (let i of task_list){ %>
                             <li>
-                                <span> <%= i.task %> </span>
-                                <input type="checkbox" aria-label="Checkbox for following text input">
+                                <div class="details">
+                                    <span> <%= i.task %> </span>
+                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                </div>  
+                                <div class="delete-button">
+                                    <a href="/delete-task/<%= i.task %>">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </div>                              
                             </li>
                         <% } %>
                     </ul>
                 </div>
+                    
+                
+
             </div>
         </div>
         
