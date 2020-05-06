@@ -33,12 +33,20 @@ app.post('/create-task', function(req, res){
 });
 
 // Deleting a task
-// app.get('/delete-task/:task', function(req, res){
-//     console.log(req.query);
-//     let task = req.query.task;
+app.get('/delete-task', function(req, res){
+    let id = req.query.id;
 
-//     let taskIndex = tasklist;
-// });
+    Task.findByIdAndDelete(id, function(err){
+        if (err){
+            console.log('error in deleting an object from database');
+            return;
+        }
+
+        return res.redirect('back');
+
+    });
+
+});
 
 // listening to the port 
 app.listen(port, function(err){

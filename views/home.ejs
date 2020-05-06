@@ -35,12 +35,11 @@
                                 <div class="details">
                                     <span> <%= i.task %> </span>
                                     <input type="checkbox" aria-label="Checkbox for following text input">
-                                </div>  
-                                <div class="delete-button">
-                                    <a href="/delete-task/<%= i.task %>">
+                                    <a id="delete-tag" href="/delete-task/?id=<%= i._id %>">
                                         <i class="fas fa-trash"></i>
                                     </a>
-                                </div>                              
+                                </div>  
+                                                              
                             </li>
                         <% } %>
                     </ul>
