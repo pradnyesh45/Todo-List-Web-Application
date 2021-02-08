@@ -5,7 +5,7 @@ A Todo List WebApp with Node.js, Express.js and MongoDB
 
 # Screenshot
 
-![Screenshot](assets/images/todo_list.jpg?raw=true "Screenshot")
+![Screenshot](./assets/images/todo_list.jpg)
 
 <br>
 To run this project in your local computer follow the following steps:<br>
